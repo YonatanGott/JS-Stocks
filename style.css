@@ -1,0 +1,46 @@
+body{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+}
+
+
+.search-col, .search-row, .loader-row{
+    justify-content: center;
+}
+.search-col, .loader-col{
+    width: 80%;
+}
+.searchBar{
+    width: 85%;
+    border-color: darkgrey;
+    background-color: whitesmoke;
+    border-style: solid;
+}
+.searchBar:focus{
+    border-color: aquamarine;
+    background-color: rgb(201, 234, 245);
+    outline: none;
+}
+.btn{
+    width: 15%;
+    background-color: aquamarine;
+    border-color: transparent;
+    color: black;
+    font-size: 1.4rem;
+
+}
+.results{
+    list-style: none;
+    padding: 0;
+}
+li{
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+#spinner{
+    visibility: hidden;
+    
+}
+#spinner.show{
+    visibility: visible;
+}
