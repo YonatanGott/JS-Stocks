@@ -2,8 +2,6 @@ body{
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
 }
-
-
 .search-col, .search-row, .loader-row{
     justify-content: center;
 }
@@ -27,7 +25,10 @@ body{
     border-color: transparent;
     color: black;
     font-size: 1.4rem;
-
+}
+.btn:hover{
+    background-color: BlueViolet;
+    color: whitesmoke;
 }
 .results{
     list-style: none;
@@ -36,6 +37,20 @@ body{
 li{
     margin-top: 0.5rem;
     font-weight: 300;
+}
+li:hover{
+    background-color: PowderBlue;
+}
+a{
+    color: black;
+}
+a:hover{
+    font-size: 1.7rem;
+    color: black;
+    text-decoration: none;
+}
+hr{
+    margin: 0;
 }
 #spinner{
     visibility: hidden;
