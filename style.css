@@ -1,61 +1,122 @@
-body{
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
+body {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
 }
-.search-col, .search-row, .loader-row{
-    justify-content: center;
+
+.search-col,
+.search-row,
+.loader-row {
+  justify-content: center;
 }
-.search-col, .loader-col{
-    width: 80%;
+.search-col,
+.loader-col {
+  width: 80%;
 }
-.searchBar{
-    width: 85%;
-    border-color: darkgrey;
-    background-color: whitesmoke;
-    border-style: solid;
+.searchBar {
+  width: 85%;
+  border-color: darkgrey;
+  background-color: whitesmoke;
+  border-style: solid;
 }
-.searchBar:focus{
-    border-color: aquamarine;
-    background-color: rgb(201, 234, 245);
-    outline: none;
+.searchBar:focus {
+  border-color: aquamarine;
+  background-color: rgb(201, 234, 245);
+  outline: none;
 }
-.btn{
-    width: 15%;
-    background-color: aquamarine;
-    border-color: transparent;
-    color: black;
-    font-size: 1.4rem;
+.btn {
+  width: 15%;
+  background-color: aquamarine;
+  border-color: transparent;
+  color: black;
+  font-size: 1.4rem;
 }
-.btn:hover{
-    background-color: BlueViolet;
-    color: whitesmoke;
+.btn:hover {
+  background-color: BlueViolet;
+  color: whitesmoke;
 }
-.results{
-    list-style: none;
-    padding: 0;
+.results {
+  list-style: none;
+  padding: 0;
 }
-li{
-    margin-top: 0.5rem;
-    font-weight: 300;
+li {
+  margin-top: 0.5rem;
+  font-weight: 300;
 }
-li:hover{
-    background-color: PowderBlue;
+li:hover {
+  background-color: PowderBlue;
 }
-a{
-    color: black;
+a {
+  color: black;
 }
-a:hover{
-    font-size: 1.7rem;
-    color: black;
-    text-decoration: none;
+a:hover {
+  font-size: 1.7rem;
+  color: black;
+  text-decoration: none;
 }
-hr{
-    margin: 0;
+hr {
+  margin: 0;
 }
-#spinner{
-    visibility: hidden;
-    
+#spinner {
+  visibility: hidden;
 }
-#spinner.show{
-    visibility: visible;
+#spinner.show {
+  visibility: visible;
+}
+.back-img {
+  height: 850px;
+  opacity: 0.6;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  filter: contrast(0);
+}
+.carousel-caption {
+  bottom: 25%;
+  color: black;
+}
+.display-4 {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.h4 {
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.red {
+  color: maroon;
+}
+.green {
+  color: LightSeaGreen;
+}
+a:hover {
+  color: RebeccaPurple;
+}
+.company-img {
+  height: auto;
+  vertical-align: baseline;
+  opacity: 0.9;
+}
+img {
+  height: 2rem;
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-gif {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
 }

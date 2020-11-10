@@ -19,15 +19,25 @@ async function getStock() {
     let stockHead = "&limit=10&exchange=NASDAQ";
     let query = document.getElementById("search").value;
     let stockSearch = stocksBase + query + stockHead;
+    let stockColor = "maroon"
     let res = await fetch(stockSearch);
     let data = await res.json();
-    let resArray = [];
     for (let i = 0; i < data.length; i++) {
         let stockRes = data[i];
         let name = stockRes.name;
         let symbol = stockRes.symbol;
-        let resItem = name + " " + symbol.bold();
-        resArray.push(resItem);
+        let profile = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/" + symbol;
+        let res2 = await fetch(profile);
+        let data2 = await res2.json();
+        let price = data2.profile.price;
+        let changes = data2.profile.changesPercentage;
+        if (changes.indexOf("-") == -1) {
+            stockColor = "LightSeaGreen";
+        }
+        let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
+        let resItem = name + " " + symbol.bold() + " " + price + " " + changes.fontcolor(stockColor) + " ";
+        let imgItem = document.createElement("img");
+        imgItem.setAttribute("src", image);
         let listItem = document.createElement("li");
         listItem.classList.add("list");
         let under = document.createElement("hr");
@@ -36,6 +46,7 @@ async function getStock() {
         link.setAttribute("href", "/company.html?symbol=" + symbol);
         link.innerHTML = resItem;
         listItem.appendChild(link);
+        listItem.appendChild(imgItem);
         document.getElementById("results").appendChild(listItem);
         document.getElementById("results").appendChild(under);
     }
@@ -43,7 +54,6 @@ async function getStock() {
 
 function clearRes() {
     let clear = document.getElementsByClassName('list');
-
     while (clear[0]) {
         clear[0].parentNode.removeChild(clear[0]);
     }
