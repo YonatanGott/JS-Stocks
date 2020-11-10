@@ -35,7 +35,7 @@ async function getStock() {
             stockColor = "LightSeaGreen";
         }
         let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
-        let resItem = name + " " + symbol.bold() + " " + price + " " + changes.fontcolor(stockColor) + " ";
+        let resItem = name + " " + symbol.bold() + " $" + price + " " + changes.fontcolor(stockColor) + " ";
         let imgItem = document.createElement("img");
         imgItem.setAttribute("src", image);
         let listItem = document.createElement("li");
