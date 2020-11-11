@@ -15,8 +15,11 @@ async function getMarquee() {
         if (change > 0) {
             changeEle.classList.add("green");
         }
-        changeEle.textContent = "(" + change + ")";
-        marquee.appendChild(symbolEle);
-        marquee.appendChild(changeEle);
+        changeEle.textContent = "(" + change +"%"+ ")";
+        let stock = document.createElement("div");
+        stock.classList.add("marquee-ticker");
+        stock.appendChild(symbolEle);
+        stock.appendChild(changeEle);
+        marquee.appendChild(stock);
     }
 }
