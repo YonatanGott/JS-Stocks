@@ -11,7 +11,7 @@ function showSpinner() {
     setTimeout(function () {
         spinner.classList.remove("show");
     }, 600);
-    
+
 }
 
 async function getStock() {
@@ -28,14 +28,14 @@ async function getStock() {
         let symbol = stockRes.symbol;
         arraySymbol.push(symbol);
     }
-    let symbolBatch = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/"+arraySymbol.join();
+    let symbolBatch = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/" + arraySymbol.join();
     let resSymbol = await fetch(symbolBatch);
     let dataSymbol = await resSymbol.json();
-    for ( let j = 0; j < dataSymbol.length; j++){
+    for (let j = 0; j < dataSymbol.length; j++) {
         let name = dataSymbol[j].name;
         let symbol = dataSymbol[j].symbol;
         let price = dataSymbol[j].price;
-        let changes= dataSymbol[j].changesPercentage;
+        let changes = dataSymbol[j].changesPercentage;
         let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
         let imgItem = document.createElement("img");
         imgItem.setAttribute("src", image);
@@ -53,13 +53,13 @@ async function getStock() {
         symbolEle.textContent = symbol;
         let priceEle = document.createElement("p");
         priceEle.classList.add("priceEle");
-        priceEle.textContent = "$"+price;
+        priceEle.textContent = "$" + price;
         let changeEle = document.createElement("p");
         changeEle.classList.add("changeEle");
-        if (changes > 0 ) {
+        if (changes > 0) {
             changeEle.classList.add("green");
         }
-        changeEle.textContent ="("+changes+")";
+        changeEle.textContent = "(" + changes + ")";
         link.appendChild(nameEle);
         link.appendChild(symbolEle);
         link.appendChild(priceEle);

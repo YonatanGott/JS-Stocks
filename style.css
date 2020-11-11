@@ -137,3 +137,17 @@ img {
   left: 240px;
   z-index: 100;
 }
+.marquee {
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+    animation: marquee 100s linear infinite;
+    animation-fill-mode: both;
+}
+.marquee:hover{
+  animation-play-state: paused;
+}
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}

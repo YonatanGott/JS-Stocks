@@ -24,7 +24,7 @@ async function getCompany() {
 
     document.getElementById("company-name").textContent = name;
     document.getElementById("company-link").setAttribute("href", website);
-    document.getElementById("company-price").textContent ="$"+ price;
+    document.getElementById("company-price").textContent = "$" + price;
     document.getElementById("company-change").textContent = changes;
     document.getElementById("company-des").textContent = description;
     document.getElementById("company-img").setAttribute("src", image);
