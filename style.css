@@ -1,8 +1,18 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
 }
-
+.cont-search{
+  background-image: url("/pics/business1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.header-row,
 .search-col,
 .search-row,
 .loader-row {
@@ -19,19 +29,19 @@ body {
   border-style: solid;
 }
 .searchBar:focus {
-  border-color: aquamarine;
+  border-color: LightSlateGray;
   background-color: rgb(201, 234, 245);
   outline: none;
 }
 .btn {
   width: 15%;
-  background-color: aquamarine;
+  background-color:LightSlateGray;
   border-color: transparent;
   color: black;
   font-size: 1.4rem;
 }
 .btn:hover {
-  background-color: BlueViolet;
+  background-color: RebeccaPurple;
   color: whitesmoke;
 }
 .results {
@@ -56,6 +66,10 @@ a:hover {
 hr {
   margin: 0;
 }
+p{
+  display: inline-block;
+  margin-right: 0.5rem;
+}
 #spinner {
   visibility: hidden;
 }
@@ -73,7 +87,7 @@ hr {
   filter: contrast(0);
 }
 .carousel-caption {
-  bottom: 25%;
+  bottom: 20%;
   color: black;
 }
 .display-4 {
@@ -84,7 +98,7 @@ hr {
   font-weight: 300;
   font-size: 1.4rem;
 }
-.red {
+.red, .changeEle {
   color: maroon;
 }
 .green {

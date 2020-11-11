@@ -45,8 +45,8 @@ async function getCompany() {
             labels: date,
             datasets: [{
                 label: 'Stock Price History',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'SteelBlue',
+                borderColor: 'SteelBlue',
                 data: close,
                 pointRadius: 0
             }]

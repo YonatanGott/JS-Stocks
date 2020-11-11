@@ -19,7 +19,6 @@ async function getStock() {
     let stockHead = "&limit=10&exchange=NASDAQ";
     let query = document.getElementById("search").value;
     let stockSearch = stocksBase + query + stockHead;
-    let stockColor = "maroon"
     let res = await fetch(stockSearch);
     let data = await res.json();
     for (let i = 0; i < data.length; i++) {
@@ -31,11 +30,7 @@ async function getStock() {
         let data2 = await res2.json();
         let price = data2.profile.price;
         let changes = data2.profile.changesPercentage;
-        if (changes.indexOf("-") == -1) {
-            stockColor = "LightSeaGreen";
-        }
         let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
-        let resItem = name + " " + symbol.bold() + " $" + price + " " + changes.fontcolor(stockColor) + " ";
         let imgItem = document.createElement("img");
         imgItem.setAttribute("src", image);
         let listItem = document.createElement("li");
@@ -44,7 +39,21 @@ async function getStock() {
         under.classList.add("list");
         let link = document.createElement("a");
         link.setAttribute("href", "/company.html?symbol=" + symbol);
-        link.innerHTML = resItem;
+        let nameEle = document.createElement("p");
+        nameEle.classList.add("nameEle");
+        nameEle.textContent = name;
+        let priceEle = document.createElement("p");
+        priceEle.classList.add("priceEle");
+        priceEle.textContent = "$"+price;
+        let changeEle = document.createElement("p");
+        changeEle.classList.add("changeEle");
+        if (changes.indexOf("-") == -1) {
+            changeEle.classList.add("green");
+        }
+        changeEle.textContent = changes;
+        link.appendChild(nameEle);
+        link.appendChild(priceEle);
+        link.appendChild(changeEle);
         listItem.appendChild(link);
         listItem.appendChild(imgItem);
         document.getElementById("results").appendChild(listItem);
