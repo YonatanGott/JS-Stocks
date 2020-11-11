@@ -101,6 +101,9 @@ p{
 .red, .changeEle {
   color: maroon;
 }
+.symbolEle{
+  font-weight: 400;
+}
 .green {
   color: LightSeaGreen;
 }
