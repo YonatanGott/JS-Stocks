@@ -6,11 +6,12 @@ document.getElementById("btn").addEventListener("click", showSpinner);
 function showSpinner() {
     let spinner = document.getElementById("spinner");
     spinner.classList.add("show");
+    clearRes();
+    getStock();
     setTimeout(function () {
         spinner.classList.remove("show");
     }, 600);
-    clearRes();
-    getStock();
+    
 }
 
 async function getStock() {
@@ -31,7 +32,6 @@ async function getStock() {
     let resSymbol = await fetch(symbolBatch);
     let dataSymbol = await resSymbol.json();
     for ( let j = 0; j < dataSymbol.length; j++){
-    console.log(dataSymbol[j].name);
         let name = dataSymbol[j].name;
         let symbol = dataSymbol[j].symbol;
         let price = dataSymbol[j].price;
@@ -68,7 +68,6 @@ async function getStock() {
         listItem.appendChild(imgItem);
         document.getElementById("results").appendChild(listItem);
         document.getElementById("results").appendChild(under);
-    
     }
 }
 
