@@ -140,17 +140,17 @@ img {
     white-space: nowrap;
     display: inline-block;
     width: 100%;
-    animation: marquee 100s linear infinite;
+    animation: marquee 1000s linear infinite;
     animation-fill-mode: both;
 }
 .marquee:hover{
   animation-play-state: paused;
 }
 @keyframes marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-10000%); }
 }
-.marquee-ticker{
+.marquee-list{
   display: inline-block;
   margin-right: 1.3rem;
 }

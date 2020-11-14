@@ -1,5 +1,7 @@
 let urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams);
 let symbol = urlParams.get('symbol');
+console.log(symbol);
 let profile = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/" + symbol;
 let history = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/" + symbol + "?serietype=line"
 

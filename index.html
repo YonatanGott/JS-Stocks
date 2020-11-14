@@ -9,11 +9,12 @@
     <title>Stock Exchange</title>
     <link rel="shortcut icon" href="/pics/favicon-32x32.png"/>
 </head>
-<body onload="getMarquee()">
+<body>
     <div class="container-fluid cont-search">
         <div class="row marquee-row">
             <div class="col-auto marquee-col">
-                <div class="marquee" id="marquee"></div>
+                <ul class="marquee" id="marquee"></ul>
+                <!--<div class="marquee" id="marquee"></div> -->
             </div>
         </div>
         <div class="row header-row">
@@ -39,7 +40,12 @@
             </div>
         </div>
     </div>
-    <script src="marquee.js"></script>
+    <script src="Marquee.js"></script>
     <script src="getStock.js"></script>
+    <script>
+            const marquee = document.getElementById("marquee");
+            const newMarquee = new Marquee(marquee);
+            newMarquee.getMarquee();
+    </script>
 </body>
 </html>
