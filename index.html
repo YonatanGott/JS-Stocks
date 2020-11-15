@@ -21,30 +21,22 @@
                 <h3 class="display-3 header">Search NASDAQ Stocks</h3>
             </div>
         </div>
-        <div class="row search-row">
-            <div class="col-auto search-col">
-                <div class="input-group input-group-lg">
-                    <input type="text" class="searchBar" id="search">
-                    <button type="button" class="btn btn-primary" id="btn">Search</button>
-                </div>
-                <div class="resultList" id="resultList">
-                    <ul class="results" id="results">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row loader-row">
-            <div class="col-auto col-loader">
-                <div class="spinner-border" id="spinner"></div>
-            </div>
-        </div>
+        <div id="form"></div>
+        <div id="searchResults"></div>
     </div>
     <script src="Marquee.js"></script>
+    <script src="searchForm.js"></script>
+    <script src="searchResults.js"></script>
     <script src="getStock.js"></script>
     <script>
+       // (async function(){
             const marquee = document.getElementById("marquee");
             const newMarquee = new Marquee(marquee);
             newMarquee.getMarquee();
+            const form = new SearchForm(document.getElementById("form"));
+            const searchResults = new SearchResults(document.getElementById("searchResults"));
+            document.getElementById("btn").addEventListener("click", SearchForm.onClick);
+        //})()
     </script>
 </body>
 </html>

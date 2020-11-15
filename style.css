@@ -102,7 +102,7 @@ p{
 .red, .changeEle {
   color: maroon;
 }
-.symbolEle{
+.symbolEle,.symbolsEle{
   font-weight: 400;
 }
 .green {
