@@ -31,12 +31,11 @@ class SearchForm {
         return row;
     }
 
-    onSearch() {
-        document.getElementById("btn").addEventListener("click", SearchForm.onClick);
-    }
-    onClick() {
-        let query = document.getElementById("search").value;
-        console.log(query);
-        return query;
+    async onSearch() {
+        document.getElementById("btn").addEventListener("click", function () {
+            let query = document.getElementById("search").value;
+            console.log(query);
+            return query;
+        });
     }
 }

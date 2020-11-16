@@ -27,16 +27,13 @@
     <script src="Marquee.js"></script>
     <script src="searchForm.js"></script>
     <script src="searchResults.js"></script>
-    <script src="getStock.js"></script>
     <script>
-       // (async function(){
-            const marquee = document.getElementById("marquee");
-            const newMarquee = new Marquee(marquee);
+            const newMarquee = new Marquee(document.getElementById("marquee"));
             newMarquee.getMarquee();
             const form = new SearchForm(document.getElementById("form"));
             const searchResults = new SearchResults(document.getElementById("searchResults"));
-            document.getElementById("btn").addEventListener("click", SearchForm.onClick);
-        //})()
+            form.onSearch();
+            searchResults.getStock() 
     </script>
 </body>
 </html>

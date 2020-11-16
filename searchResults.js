@@ -34,7 +34,7 @@ class SearchResults {
         return row;
     }
 
-    createResultList(name, symbol, price, changes, image) {
+    static createResultList(name, symbol, price, changes, image) {
         let imgItem = document.createElement("img");
         imgItem.setAttribute("src", image);
         let listItem = document.createElement("li");
@@ -66,10 +66,12 @@ class SearchResults {
         listItem.appendChild(imgItem);
         document.getElementById("results").appendChild(listItem);
         document.getElementById("results").appendChild(under);
+        return document.getElementById("results");
     }
 
 
-    async getStock(query) {
+    async getStock() {
+        let query = "AA";
         let stocksBase =
             "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=";
         let stockHead = "&limit=10&exchange=NASDAQ";
@@ -94,8 +96,9 @@ class SearchResults {
             this.changeList.push(changes);
             let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
             this.imageList.push(image);
-            SearchResults.createResultList(name, symbol, price, changes, image);
+            this.resultEle.appendChild(SearchResults.createResultList(name, symbol, price, changes, image));
         }
+        SearchResults.matchRes(query);
     }
 
 
@@ -103,6 +106,21 @@ class SearchResults {
         let clear = document.getElementsByClassName('list');
         while (clear[0]) {
             clear[0].parentNode.removeChild(clear[0]);
+        }
+    }
+
+    static matchRes(query) {
+        let queryCase = new RegExp('('+query+')',"ig");
+        let queryNames = document.querySelectorAll(".nameEle");
+        let querySymbols = document.querySelectorAll(".symbolsEle");
+        let highlight = '<span class="highlight">'+query+'</span>';
+        for (let l = 0; l < queryNames.length; l++) {
+            let rePlace = queryNames[l].innerHTML.replace(queryCase, highlight);
+            queryNames[l].innerHTML =  rePlace;
+        }
+        for (let j = 0; j < querySymbols.length; j++) {
+            let rePlace = querySymbols[j].innerHTML.replace(queryCase, highlight);
+            querySymbols[j].innerHTML = rePlace;
         }
     }
 }

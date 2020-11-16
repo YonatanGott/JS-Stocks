@@ -154,3 +154,7 @@ img {
   display: inline-block;
   margin-right: 1.3rem;
 }
+.highlight{
+  background-color:PaleGoldenRod;
+  z-index: -1;
+}
