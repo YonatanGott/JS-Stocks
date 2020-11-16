@@ -4,6 +4,7 @@ class SearchForm {
     constructor(element) {
         this.searchEle = element;
         this.searchEle.appendChild(SearchForm.createSearchBar());
+        this.query =[];
     }
     static createSearchBar() {
         let row = document.createElement("div");
@@ -33,9 +34,9 @@ class SearchForm {
 
     async onSearch() {
         document.getElementById("btn").addEventListener("click", function () {
-            let query = document.getElementById("search").value;
-            console.log(query);
-            return query;
+            this.query = document.getElementById("search").value;
+            console.log(this.query);
+            return this.query;
         });
     }
 }

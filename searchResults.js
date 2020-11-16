@@ -8,6 +8,7 @@ class SearchResults {
         this.nameList = [];
         this.priceList = [];
         this.imageList = [];
+        this.query=[];
         this.resultEle.appendChild(SearchResults.createResultBar());
     }
 
@@ -70,39 +71,43 @@ class SearchResults {
     }
 
 
-    async getStock() {
-        let query = "AA";
+    async onSearch() {
+        document.getElementById("btn").addEventListener("click", function () {
+            this.query = document.getElementById("search").value;
+            console.log(this.query);
+            SearchResults.getStock(this.query);
+        });
+    }
+    static async getStock(query) {
+        SearchResults.clearRes();
         let stocksBase =
             "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=";
         let stockHead = "&limit=10&exchange=NASDAQ";
         let stockSearch = stocksBase + query + stockHead;
+        let symbolList = [];
         let res = await fetch(stockSearch);
         let data = await res.json();
         for (let i = 0; i < data.length; i++) {
             let stockRes = data[i];
             let symbol = stockRes.symbol;
-            this.symbolList.push(symbol);
+            symbolList.push(symbol);
         }
-        let symbolBatch = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/" + this.symbolList.join();
+        let symbolBatch = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/" + symbolList.join();
         let resSymbol = await fetch(symbolBatch);
         let dataSymbol = await resSymbol.json();
         for (let j = 0; j < dataSymbol.length; j++) {
             let name = dataSymbol[j].name;
-            this.nameList.push(name);
             let symbol = dataSymbol[j].symbol;
             let price = dataSymbol[j].price;
-            this.priceList.push(price);
             let changes = dataSymbol[j].changesPercentage;
-            this.changeList.push(changes);
             let image = "https://financialmodelingprep.com/image-stock/" + symbol + ".jpg";
-            this.imageList.push(image);
-            this.resultEle.appendChild(SearchResults.createResultList(name, symbol, price, changes, image));
+            SearchResults.createResultList(name, symbol, price, changes, image);
         }
         SearchResults.matchRes(query);
     }
 
 
-    clearRes() {
+    static clearRes() {
         let clear = document.getElementsByClassName('list');
         while (clear[0]) {
             clear[0].parentNode.removeChild(clear[0]);
