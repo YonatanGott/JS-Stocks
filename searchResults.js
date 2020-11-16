@@ -74,7 +74,6 @@ class SearchResults {
     async onSearch() {
         document.getElementById("btn").addEventListener("click", function () {
             this.query = document.getElementById("search").value;
-            console.log(this.query);
             SearchResults.getStock(this.query);
         });
     }
@@ -115,16 +114,14 @@ class SearchResults {
     }
 
     static matchRes(query) {
-        let queryCase = new RegExp('('+query+')',"ig");
         let queryNames = document.querySelectorAll(".nameEle");
         let querySymbols = document.querySelectorAll(".symbolsEle");
-        let highlight = '<span class="highlight">'+query+'</span>';
         for (let l = 0; l < queryNames.length; l++) {
-            let rePlace = queryNames[l].innerHTML.replace(queryCase, highlight);
+            let rePlace = queryNames[l].innerHTML.replace(new RegExp(query, "gi"), (match) => `<span class="highlight">${match}</span>`);
             queryNames[l].innerHTML =  rePlace;
         }
         for (let j = 0; j < querySymbols.length; j++) {
-            let rePlace = querySymbols[j].innerHTML.replace(queryCase, highlight);
+            let rePlace = querySymbols[j].innerHTML.replace(new RegExp(query, "gi"), (match) => `<span class="highlight">${match}</span>`);
             querySymbols[j].innerHTML = rePlace;
         }
     }
